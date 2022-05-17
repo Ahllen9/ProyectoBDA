@@ -18,27 +18,27 @@ public interface IUsuarioDAO {
      * Método que agrega el usuario dado por parámetro
      * @param usuario 
      */
-    boolean agregar(Usuario usuario);
+    boolean agregarUsuario(Usuario usuario);
     /**
      * Método que regresa todos los usuarios registrados
      * @param usuario
      * @return 
      */
-    boolean actualizar(Usuario usuario);
+    boolean actualizarUsuario(Usuario usuario);
     /**
      * Método que regresa el usuario que contenga los valores dados por paramtro
      * @param email
      * @param password
      * @return 
      */
-    Usuario consultarUsuario(String email,String password);
+    Usuario consultarUser(String email,String password);
     /**
      * Método que regresa true en caso de que encuentre el usuario con los datos dados por parametro
      * @param email
      * @param password
      * @return 
      */
-    boolean consultar(String email,String password);
+    boolean consultarUsuario(String email,String password);
     /**
      * Métodp que regresa true en caso de que encuentre el usuario con el email dado por parametro
      * @param email

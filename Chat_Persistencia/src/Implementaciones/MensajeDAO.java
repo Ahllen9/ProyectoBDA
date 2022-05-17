@@ -33,13 +33,13 @@ public class MensajeDAO implements IMensajeDAO{
     }
     
     @Override
-    public void agregar(Mensaje mensaje) {
+    public void agregarMensaje(Mensaje mensaje) {
         MongoCollection<Mensaje> coleccion = this.getColeccion();
         coleccion.insertOne(mensaje);
     }
 
     @Override
-    public List<Mensaje> consultarTodos() {
+    public List<Mensaje> consultarTodosMensajes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

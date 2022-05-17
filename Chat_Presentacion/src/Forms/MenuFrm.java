@@ -4,6 +4,7 @@ import Entidades.Usuario;
 import Implementaciones.ConexionBD;
 import Implementaciones.UsuarioDAO;
 import Interfaces.IUsuarioDAO;
+import Validaciones.ValidarUsuario;
 import javax.swing.JOptionPane;
 
 /*
@@ -16,8 +17,9 @@ import javax.swing.JOptionPane;
  *
  * @author arturo
  */
+
 public class MenuFrm extends javax.swing.JFrame {
-    
+    ValidarUsuario validarUser = new ValidarUsuario();
     /**
      * Creates new form MenuFrm
      */
@@ -163,11 +165,13 @@ public class MenuFrm extends javax.swing.JFrame {
         }
         
         else{
-            IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
-            if (usuarioDao.consultar(txtEmail.getText(),jpPassword.getText()) == true) {
+            if (validarUser.validarUsuario(txtEmail.getText(),jpPassword.getText()) == true) {
                 System.out.println("Entro");
-                new PerfilFrm(usuarioDao.consultarUsuario(txtEmail.getText(),jpPassword.getText()));
+                new PerfilFrm(validarUser.IniciarPerfil(txtEmail.getText(),jpPassword.getText()));
                 this.dispose();
+            }
+            else if (rootPaneCheckingEnabled) {
+                
             }
             else {
                 JOptionPane.showMessageDialog(this,"Usuario no resigtrado","ERROR"

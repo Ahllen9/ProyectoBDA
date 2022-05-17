@@ -293,7 +293,7 @@ public class UsuariosFrm extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this,"El nombre de usuario ya existe","información"
                     , JOptionPane.INFORMATION_MESSAGE);
             }
-            else if(usuarioDao.agregar(usuario)){
+            else if(usuarioDao.agregarUsuario(usuario)){
             JOptionPane.showMessageDialog(this,"Se registro el usuario correctamente","información"
                     , JOptionPane.INFORMATION_MESSAGE);
             limpiar();

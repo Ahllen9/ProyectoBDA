@@ -17,10 +17,10 @@ public interface IMensajeDAO {
      * Método que agrega el usuario dado por parámetro
      * @param mensaje 
      */
-    void agregar(Mensaje mensaje);
+    void agregarMensaje(Mensaje mensaje);
     /**
      * Método que regresa todos los mensajes registrados
      * @return 
      */
-    List<Mensaje> consultarTodos();
+    List<Mensaje> consultarTodosMensajes();
 }

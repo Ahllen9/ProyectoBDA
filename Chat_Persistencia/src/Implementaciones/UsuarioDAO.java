@@ -39,14 +39,14 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
     
     @Override
-    public boolean agregar(Usuario usuario) {
+    public boolean agregarUsuario(Usuario usuario) {
         MongoCollection<Usuario> coleccion = this.getColeccion();
         coleccion.insertOne(usuario);
         return true;
     }
 
     @Override
-    public Usuario consultarUsuario(String email, String password) {
+    public Usuario consultarUser(String email, String password) {
         FindIterable<Usuario> registros = this.getColeccion().find(new Document().append("email",email)
                 .append("password",password));
         Usuario user = registros.first();
@@ -62,7 +62,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public boolean consultar(String email, String password) {
+    public boolean consultarUsuario(String email, String password) {
         FindIterable<Usuario> registros = this.getColeccion().find(new Document().append("email",email)
                 .append("password",password));
         if (registros.first() == null) {
@@ -90,7 +90,7 @@ public class UsuarioDAO implements IUsuarioDAO{
     }
 
     @Override
-    public boolean actualizar(Usuario usuario) {
+    public boolean actualizarUsuario(Usuario usuario) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

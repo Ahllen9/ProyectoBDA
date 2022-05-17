@@ -141,7 +141,7 @@ public class ChatFrm extends javax.swing.JFrame {
         else{
             IMensajeDAO mensajeDao = new MensajeDAO(new ConexionBD());
             Mensaje mensaje = new Mensaje(user.getId(), this.txtMensaje.getText(),this.fechaEnvio.getTime());
-            mensajeDao.agregar(mensaje);
+            mensajeDao.agregarMensaje(mensaje);
         }
     }//GEN-LAST:event_jbEnviarActionPerformed
 

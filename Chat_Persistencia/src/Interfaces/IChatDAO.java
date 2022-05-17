@@ -19,15 +19,15 @@ public interface IChatDAO {
      * @param usuario
      * @param mensaje 
      */
-    void agregar(Usuario usuario, Mensaje mensaje);
+    void agregarChat(Usuario usuario, Mensaje mensaje);
     /**
      * Método que regresa todos los chats registrados
      * @return 
      */
-    List<Usuario> consultarChats();
+    List<Usuario> consultarUsuariosChats();
     /**
      * Método que regresa todos los mensajes registrados
      * @return 
      */
-    List<Mensaje> consultarMensajes();
+    List<Mensaje> consultarMensajesChats();
 }
