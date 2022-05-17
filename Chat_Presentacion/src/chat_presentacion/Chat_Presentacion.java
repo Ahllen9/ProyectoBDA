@@ -6,6 +6,7 @@
 package chat_presentacion;
 
 import Entidades.Usuario;
+import Forms.MenuFrm;
 import Implementaciones.ConexionBD;
 import Implementaciones.UsuarioDAO;
 import Interfaces.IUsuarioDAO;
@@ -20,11 +21,6 @@ public class Chat_Presentacion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
-        if (usuarioDao.consultar("1", "2") == true) {
-            System.out.println("Entro");
-        }
-        
+        MenuFrm menu = new MenuFrm();
     } 
 }
