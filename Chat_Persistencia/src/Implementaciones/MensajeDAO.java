@@ -6,6 +6,7 @@
 package Implementaciones;
 
 import Entidades.Mensaje;
+import FachadaDAO.FachaPersistencia;
 import Interfaces.IConexionBD;
 import Interfaces.IMensajeDAO;
 import com.mongodb.client.MongoCollection;
@@ -19,28 +20,21 @@ import java.util.List;
 public class MensajeDAO implements IMensajeDAO{
     private IConexionBD conexion;
     private MongoDatabase baseDatos;
-    
+
     public MensajeDAO(IConexionBD conexion){
         this.conexion = conexion;
         this.baseDatos = conexion.crearConexion();
     }
-    /**
-     * Devuelve la coleccion de usuarios de la base de datos
-     * @return 
-     */
-    private MongoCollection<Mensaje> getColeccion(){
-        return this.baseDatos.getCollection("Mensajes",Mensaje.class);
-    }
     
     @Override
     public void agregarMensaje(Mensaje mensaje) {
-        MongoCollection<Mensaje> coleccion = this.getColeccion();
-        coleccion.insertOne(mensaje);
+        
     }
 
     @Override
     public List<Mensaje> consultarTodosMensajes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
     }
     
 }

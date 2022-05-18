@@ -6,6 +6,7 @@
 package Implementaciones;
 
 import Entidades.Usuario;
+import FachadaDAO.FachaPersistencia;
 import Interfaces.IConexionBD;
 import Interfaces.IUsuarioDAO;
 import com.mongodb.client.FindIterable;
@@ -25,15 +26,12 @@ import org.bson.types.ObjectId;
 public class UsuarioDAO implements IUsuarioDAO{
     private IConexionBD conexion;
     private MongoDatabase baseDatos;
-    
+
     public UsuarioDAO(IConexionBD conexion){
         this.conexion = conexion;
         this.baseDatos = conexion.crearConexion();
     }
-    /**
-     * Devuelve la coleccion de usuarios de la base de datos
-     * @return 
-     */
+    
     private MongoCollection<Usuario> getColeccion(){
         return this.baseDatos.getCollection("Usuarios",Usuario.class);
     }
@@ -58,7 +56,7 @@ public class UsuarioDAO implements IUsuarioDAO{
         MongoCollection<Usuario> coleccion = this.getColeccion();
         List<Usuario> usuarios = new LinkedList<>(); 
         coleccion.find().into(usuarios);
-        return usuarios;
+        return usuarios;    
     }
 
     @Override
@@ -91,7 +89,7 @@ public class UsuarioDAO implements IUsuarioDAO{
 
     @Override
     public boolean actualizarUsuario(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override

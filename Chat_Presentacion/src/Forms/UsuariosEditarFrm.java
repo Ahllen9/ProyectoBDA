@@ -202,22 +202,22 @@ public class UsuariosEditarFrm extends javax.swing.JFrame {
     }
     
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
-        if (usuarioDao.consultarID(user.getId())==true) {
-            user.setNombre(this.txtNombreUsuarioNuevo.getText());
-            user.setNombre(this.jpPasswordNueva.getText());
-            user.setNombre(this.txtEmail.getText());
-            JOptionPane.showMessageDialog(this,"Usuario actualizado","Información"
-                    , JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if (usuarioDao.consultarEmail(this.txtEmail.getText())==true) {
-            JOptionPane.showMessageDialog(this,"El email ya existe","ERROR"
-                    , JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-            JOptionPane.showMessageDialog(this,"No se pudo aztualizar","ERROR"
-                    , JOptionPane.ERROR_MESSAGE);
-        }
+//        IUsuarioDAO usuarioDao = new UsuarioDAO();
+//        if (usuarioDao.consultarID(user.getId())==true) {
+//            user.setNombre(this.txtNombreUsuarioNuevo.getText());
+//            user.setNombre(this.jpPasswordNueva.getText());
+//            user.setNombre(this.txtEmail.getText());
+//            JOptionPane.showMessageDialog(this,"Usuario actualizado","Información"
+//                    , JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        else if (usuarioDao.consultarEmail(this.txtEmail.getText())==true) {
+//            JOptionPane.showMessageDialog(this,"El email ya existe","ERROR"
+//                    , JOptionPane.ERROR_MESSAGE);
+//        }
+//        else{
+//            JOptionPane.showMessageDialog(this,"No se pudo aztualizar","ERROR"
+//                    , JOptionPane.ERROR_MESSAGE);
+//        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed

@@ -7,21 +7,36 @@ package FachadaDAO;
 
 import Entidades.Mensaje;
 import Entidades.Usuario;
-import Interfaces.IMensajeDAO;
-import Interfaces.IUsuarioDAO;
-import Interfaces.IChatDAO;
+import Implementaciones.ChatDAO;
+import Implementaciones.MensajeDAO;
+import Implementaciones.UsuarioDAO;
+import Interfaces.IConexionBD;
+import Interfaces.IFachadaPersistencia;
+import com.mongodb.client.MongoDatabase;
 import java.util.List;
 import org.bson.types.ObjectId;
+
+
 
 /**
  *
  * @author arturo
  */
-public class Fachadao implements IUsuarioDAO, IMensajeDAO, IChatDAO{
+public class FachaPersistencia implements IFachadaPersistencia{
+    private DAOsFactory factory;
+    private IConexionBD conexion;
+    private MongoDatabase baseDatos;
+    private UsuarioDAO usuariodao;
+    private MensajeDAO mensajedao;
+    private ChatDAO chatdao;
+    
+    public FachaPersistencia(IConexionBD conexion) {
+        this.factory = new DAOsFactory();
+    }
 
     @Override
     public boolean agregarUsuario(Usuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.agregarUsuario(usuario);
     }
 
     @Override
@@ -31,47 +46,47 @@ public class Fachadao implements IUsuarioDAO, IMensajeDAO, IChatDAO{
 
     @Override
     public Usuario consultarUser(String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarUser(email, password);
     }
 
     @Override
     public boolean consultarUsuario(String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarUsuario(email, password);
     }
 
     @Override
     public boolean consultarEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarEmail(email);
     }
 
     @Override
     public boolean consultarNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarNombre(nombre);
     }
 
     @Override
     public boolean consultarID(ObjectId id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarID(id);
     }
 
     @Override
     public List<Usuario> consultarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usuariodao.consultarTodos();
     }
 
     @Override
     public void agregarMensaje(Mensaje mensaje) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         mensajedao.agregarMensaje(mensaje);
     }
 
     @Override
     public List<Mensaje> consultarTodosMensajes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mensajedao.consultarTodosMensajes();
     }
 
     @Override
     public void agregarChat(Usuario usuario, Mensaje mensaje) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        chatdao.agregarChat(usuario, mensaje);
     }
 
     @Override
@@ -83,7 +98,5 @@ public class Fachadao implements IUsuarioDAO, IMensajeDAO, IChatDAO{
     public List<Mensaje> consultarMensajesChats() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
     
 }

@@ -282,25 +282,25 @@ public class UsuariosFrm extends javax.swing.JFrame {
                     , JOptionPane.ERROR_MESSAGE);
         }
         else{
-            IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
-            Usuario usuario = new Usuario(this.txtNombreUsuario.getText(),this.jComboSexo.getSelectedItem().toString(), 
-                    this.txtEmail.getText(),this.jpPassword.getText(), Integer.parseInt(this.txtEdad.getText()));
-            if (usuarioDao.consultarEmail(txtEmail.getText()) == true) {
-                JOptionPane.showMessageDialog(this,"El correo ya existe","información"
-                    , JOptionPane.INFORMATION_MESSAGE);
-            }
-            else if (usuarioDao.consultarEmail(txtNombreUsuario.getText())) {
-                 JOptionPane.showMessageDialog(this,"El nombre de usuario ya existe","información"
-                    , JOptionPane.INFORMATION_MESSAGE);
-            }
-            else if(usuarioDao.agregarUsuario(usuario)){
-            JOptionPane.showMessageDialog(this,"Se registro el usuario correctamente","información"
-                    , JOptionPane.INFORMATION_MESSAGE);
-            limpiar();
-            }else{
-                JOptionPane.showMessageDialog(this,"No se pudo registrar el usuario","error"
-                        , JOptionPane.INFORMATION_MESSAGE);
-            } 
+//            IUsuarioDAO usuarioDao = new UsuarioDAO();
+//            Usuario usuario = new Usuario(this.txtNombreUsuario.getText(),this.jComboSexo.getSelectedItem().toString(), 
+//                    this.txtEmail.getText(),this.jpPassword.getText(), Integer.parseInt(this.txtEdad.getText()));
+//            if (usuarioDao.consultarEmail(txtEmail.getText()) == true) {
+//                JOptionPane.showMessageDialog(this,"El correo ya existe","información"
+//                    , JOptionPane.INFORMATION_MESSAGE);
+//            }
+//            else if (usuarioDao.consultarEmail(txtNombreUsuario.getText())) {
+//                 JOptionPane.showMessageDialog(this,"El nombre de usuario ya existe","información"
+//                    , JOptionPane.INFORMATION_MESSAGE);
+//            }
+//            else if(usuarioDao.agregarUsuario(usuario)){
+//            JOptionPane.showMessageDialog(this,"Se registro el usuario correctamente","información"
+//                    , JOptionPane.INFORMATION_MESSAGE);
+//            limpiar();
+//            }else{
+//                JOptionPane.showMessageDialog(this,"No se pudo registrar el usuario","error"
+//                        , JOptionPane.INFORMATION_MESSAGE);
+//            } 
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 

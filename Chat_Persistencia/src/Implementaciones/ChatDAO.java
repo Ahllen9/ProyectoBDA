@@ -20,7 +20,7 @@ public class ChatDAO implements IChatDAO{
     private IConexionBD conexion;
     private MongoDatabase baseDatos;
     
-    protected ChatDAO(IConexionBD conexion){
+    public ChatDAO(IConexionBD conexion){
         this.conexion = conexion;
         this.baseDatos = conexion.crearConexion();
     }

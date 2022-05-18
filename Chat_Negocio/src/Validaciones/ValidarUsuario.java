@@ -6,6 +6,7 @@
 package Validaciones;
 
 import Entidades.Usuario;
+import FachadaDAO.FachaPersistencia;
 import Implementaciones.ConexionBD;
 import Implementaciones.UsuarioDAO;
 import Interfaces.IUsuarioDAO;
@@ -15,7 +16,7 @@ import Interfaces.IUsuarioDAO;
  * @author arturo
  */
 public class ValidarUsuario {
-    IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
+    FachaPersistencia fachada = new FachaPersistencia(new ConexionBD());
     
     public ValidarUsuario() {
     }
@@ -25,7 +26,7 @@ public class ValidarUsuario {
 //    }
     
     public boolean validarContrasenia(String email, String password){
-        Usuario user = usuarioDao.consultarUser(email, password);
+        Usuario user = fachada.consultarUser(email, password);
         if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
             return true;
         }
@@ -33,11 +34,11 @@ public class ValidarUsuario {
     }
     
     public Usuario IniciarPerfil(String email, String password){
-        return usuarioDao.consultarUser(email, password);
+        return fachada.consultarUser(email, password);
     }
     
     public boolean validarUsuario(String email, String password){
-        if (usuarioDao.consultarUsuario(email, password)) {
+        if (fachada.consultarUsuario(email, password)) {
             return true;
         }
         else return false;

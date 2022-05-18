@@ -24,7 +24,7 @@ public class PerfilFrm extends javax.swing.JFrame {
     public PerfilFrm(Usuario user) {
         initComponents();
         this.setVisible(rootPaneCheckingEnabled);
-        this.llenarTabla();
+//        this.llenarTabla();
         this.user = user;
         this.txtPerfilNombreUsuario.setText(user.getNombre());
     }
@@ -207,17 +207,17 @@ public class PerfilFrm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbEditarActionPerformed
     
-    private void llenarTabla(){
-        IUsuarioDAO usuarioDao = new UsuarioDAO(new ConexionBD());
-        List<Usuario> listaUsuarios = usuarioDao.consultarTodos();
-        DefaultTableModel modelo= (DefaultTableModel)this.jtChats.getModel();
-        modelo.setRowCount(0);
-        listaUsuarios.forEach(usuario -> {
-            Object[] fila = new Object[1];
-            fila[0]= usuario.getNombre();
-            modelo.addRow(fila);
-        });
-    }
+//    private void llenarTabla(){
+//        IUsuarioDAO usuarioDao = new UsuarioDAO();
+//        List<Usuario> listaUsuarios = usuarioDao.consultarTodos();
+//        DefaultTableModel modelo= (DefaultTableModel)this.jtChats.getModel();
+//        modelo.setRowCount(0);
+//        listaUsuarios.forEach(usuario -> {
+//            Object[] fila = new Object[1];
+//            fila[0]= usuario.getNombre();
+//            modelo.addRow(fila);
+//        });
+//    }
     
     private void jbAbrirChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAbrirChatActionPerformed
         new ChatFrm(user);

@@ -139,9 +139,9 @@ public class ChatFrm extends javax.swing.JFrame {
                     , JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-            IMensajeDAO mensajeDao = new MensajeDAO(new ConexionBD());
-            Mensaje mensaje = new Mensaje(user.getId(), this.txtMensaje.getText(),this.fechaEnvio.getTime());
-            mensajeDao.agregarMensaje(mensaje);
+//            IMensajeDAO mensajeDao = new MensajeDAO();
+//            Mensaje mensaje = new Mensaje(user.getId(), this.txtMensaje.getText(),this.fechaEnvio.getTime());
+//            mensajeDao.agregarMensaje(mensaje);
         }
     }//GEN-LAST:event_jbEnviarActionPerformed
 
